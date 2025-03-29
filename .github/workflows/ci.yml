@@ -76,4 +76,4 @@ jobs:
 
             # Run Tests
             - name: Run Tests
-              run: bun run test
+              run: bun run test:run
