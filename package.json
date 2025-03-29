@@ -21,10 +21,15 @@
         "lint:fix": "eslint . --ext .ts --fix",
         "tsc:check": "tsc --noEmit",
         "prepare": "husky install",
-        "format": "prettier --write \"**/*.{ts,json,md}\""
+        "format": "prettier --write \"**/*.{ts,json,md}\"",
+        "docs": "typedoc --out docs src/index.ts",
+        "clean": "rm -rf dist docs coverage",
+        "prebuild": "bun run clean"
     },
     "files": [
-        "dist"
+        "dist",
+        "README.md",
+        "LICENSE"
     ],
     "keywords": [
         "time",
@@ -32,7 +37,9 @@
         "formatting",
         "manipulation",
         "typescript",
-        "bun"
+        "bun",
+        "utility",
+        "datetime"
     ],
     "license": "MIT",
     "homepage": "https://github.com/kareemsabra/time-master#readme",
@@ -56,7 +63,8 @@
         "prettier": "^3.2.5",
         "eslint-import-resolver-typescript": "^3.6.1",
         "husky": "^9.0.11",
-        "lint-staged": "^15.2.2"
+        "lint-staged": "^15.2.2",
+        "typedoc": "^0.25.12"
     },
     "lint-staged": {
         "*.{ts,json,md}": [
@@ -65,7 +73,12 @@
             "git add"
         ],
         "*.ts": [
-            "bun test"
+            "bun test:run",
+            "tsc --noEmit"
         ]
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "bun": ">=1.0.0"
     }
 }
