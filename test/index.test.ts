@@ -1,12 +1,13 @@
-import { describe, it, expect } from 'bun:test'
-import { one, two } from '../src'
+import { describe, it, expect } from 'vitest';
 
-describe('should', () => {
-  it('export 1', () => {
-    expect(one).toBe(1)
-  })
+import { one, two } from '../src';
 
-  it('export 2', () => {
-    expect(two).toBe(2)
-  })
-})
+describe('Basic exports', () => {
+    it('should export one as 1', () => {
+        expect(one).toBe(1);
+    });
+
+    it('should export two as 2', () => {
+        expect(two).toBe(2);
+    });
+});

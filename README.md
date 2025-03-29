@@ -1,26 +1,89 @@
-# bun starter
+# Time Master
 
-## Getting Started
+A powerful and flexible time manipulation and formatting library for JavaScript and TypeScript.
 
-Click the [Use this template](https://github.com/wobsoriano/bun-lib-starter/generate) button to create a new repository with the contents starter.
+## Features
 
-OR
+- 🚀 Built with TypeScript
+- 📦 Zero dependencies
+- 🔄 ESM and CommonJS support
+- 🎯 Tree-shakeable
+- ⚡ Bun-powered for maximum performance
 
-Run `bun create wobsoriano/bun-lib-starter ./my-lib`.
-
-## Setup
+## Installation
 
 ```bash
-# install dependencies
+# Using bun
+bun add time-master
+
+# Using npm
+npm install time-master
+
+# Using yarn
+yarn add time-master
+
+# Using pnpm
+pnpm add time-master
+```
+
+## Usage
+
+```typescript
+import { one, two } from 'time-master';
+
+// Basic usage examples will go here as the library grows
+```
+
+## API Reference
+
+### Constants
+
+- `one`: Returns the number 1
+- `two`: Returns the number 2
+
+More API documentation will be added as the library grows.
+
+## Development
+
+```bash
+# Install dependencies
 bun install
 
-# test the app
+# Run tests
 bun test
 
-# build the app, available under dist
+# Run tests with coverage
+bun run test:coverage
+
+# Build the library
 bun run build
+
+# Lint code
+bun run lint
+
+# Fix linting issues
+bun run lint:fix
 ```
+
+## Contributing
+
+Contributions are welcome! Please feel free to submit a Pull Request.
+
+1. Fork the repository
+2. Create your feature branch (`git checkout -b feature/amazing-feature`)
+3. Commit your changes (`git commit -m 'Add some amazing feature'`)
+4. Push to the branch (`git push origin feature/amazing-feature`)
+5. Open a Pull Request
 
 ## License
 
-MIT
+This project is licensed under the MIT License - see the [LICENSE](LICENSE) file for details.
+
+## Author
+
+Kareem Sabra
+
+## Acknowledgments
+
+- Built with [Bun](https://bun.sh/)
+- Tested with [Vitest](https://vitest.dev/)
