@@ -15,18 +15,6 @@ on:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-    Labels:
-        permissions: write-all
-        runs-on: ubuntu-latest
-
-        steps:
-            - uses: mschilde/auto-label-merge-conflicts@master
-              with:
-                  CONFLICT_LABEL_NAME: 'Merge Conflicts'
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-                  MAX_RETRIES: 5
-                  WAIT_MS: 5000
-
     # This workflow contains a single job called "ESlint"
     ESlint:
         # The type of runner that the job will run on
