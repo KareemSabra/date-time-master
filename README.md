@@ -63,7 +63,22 @@ bun run lint
 
 # Fix linting issues
 bun run lint:fix
+
+# Format code
+bun run format
 ```
+
+### Git Hooks
+
+This project uses Husky for Git hooks to ensure code quality. The following hooks are set up:
+
+- **Pre-commit**: Runs before each commit to:
+    - Format code using Prettier
+    - Fix linting issues
+    - Run tests
+    - Stage the changes
+
+These hooks are automatically installed when you run `bun install`.
 
 ## Contributing
 

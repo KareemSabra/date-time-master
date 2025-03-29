@@ -4,88 +4,88 @@ name: CI
 
 # Controls when the workflow will run
 on:
-  # Triggers the workflow on push or pull request events but only for the main branch
-  # push:
-  #     branches: [main, staging, testing, develop]
-  pull_request:
-    branches: [main, develop]
+    # Triggers the workflow on push or pull request events but only for the main branch
+    push:
+        branches: [main, develop]
+    pull_request:
+        branches: [main, develop]
 
-  # Allows you to run this workflow manually from the Actions tab
-  workflow_dispatch:
+    # Allows you to run this workflow manually from the Actions tab
+    workflow_dispatch:
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
 jobs:
-  Labels:
-    permissions: write-all
-    runs-on: ubuntu-latest
+    Labels:
+        permissions: write-all
+        runs-on: ubuntu-latest
 
-    steps:
-      - uses: mschilde/auto-label-merge-conflicts@master
-        with:
-          CONFLICT_LABEL_NAME: "Merge Conflicts"
-          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-          MAX_RETRIES: 5
-          WAIT_MS: 5000
+        steps:
+            - uses: mschilde/auto-label-merge-conflicts@master
+              with:
+                  CONFLICT_LABEL_NAME: 'Merge Conflicts'
+                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  MAX_RETRIES: 5
+                  WAIT_MS: 5000
 
-  # This workflow contains a single job called "ESlint"
-  ESlint:
-    # The type of runner that the job will run on
-    runs-on: macos-14
+    # This workflow contains a single job called "ESlint"
+    ESlint:
+        # The type of runner that the job will run on
+        runs-on: macos-14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: "latest"
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v3
+            - uses: oven-sh/setup-bun@v1
+              with:
+                  bun-version: 'latest'
 
-      # Install Node Modules
-      - name: Install node_modules
-        run: bun install
+            # Install Node Modules
+            - name: Install node_modules
+              run: bun install
 
-      # Run Tests
-      - name: Run ESlint
-        run: bun run lint
+            # Run Tests
+            - name: Run ESlint
+              run: bun run lint
 
-  # This workflow contains a single job called "TSC"
-  TSC:
-    # The type of runner that the job will run on
-    runs-on: macos-14
+    # This workflow contains a single job called "TSC"
+    TSC:
+        # The type of runner that the job will run on
+        runs-on: macos-14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: "latest"
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v3
+            - uses: oven-sh/setup-bun@v1
+              with:
+                  bun-version: 'latest'
 
-      # Install Node Modules
-      - name: Install node_modules
-        run: bun install
+            # Install Node Modules
+            - name: Install node_modules
+              run: bun install
 
-      # Run Typescript Checker
-      - name: Run Typescript Checker
-        run: bun run tsc
+            # Run Typescript Checker
+            - name: Run Typescript Checker
+              run: bun run tsc
 
-  # This workflow contains a single job called "build"
-  Test:
-    # The type of runner that the job will run on
-    runs-on: macos-14
+    # This workflow contains a single job called "build"
+    Test:
+        # The type of runner that the job will run on
+        runs-on: macos-14
 
-    # Steps represent a sequence of tasks that will be executed as part of the job
-    steps:
-      # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
-      - uses: actions/checkout@v3
-      - uses: oven-sh/setup-bun@v1
-        with:
-          bun-version: "latest"
+        # Steps represent a sequence of tasks that will be executed as part of the job
+        steps:
+            # Checks-out your repository under $GITHUB_WORKSPACE, so your job can access it
+            - uses: actions/checkout@v3
+            - uses: oven-sh/setup-bun@v1
+              with:
+                  bun-version: 'latest'
 
-      # Install Node Modules
-      - name: Install node_modules
-        run: bun install
+            # Install Node Modules
+            - name: Install node_modules
+              run: bun install
 
-      # Run Tests
-      - name: Run Tests
-        run: bun run test
+            # Run Tests
+            - name: Run Tests
+              run: bun run test
