@@ -28,7 +28,11 @@ jobs:
               run: bun run build
 
             - name: Generate changelog
-              run: npx changelogithub
+              id: changelog
+              run: |
+                  echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
+                  npx changelogithub >> $GITHUB_OUTPUT
+                  echo "EOF" >> $GITHUB_OUTPUT
               env:
                   GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
 
@@ -36,10 +40,9 @@ jobs:
               uses: softprops/action-gh-release@v1
               with:
                   name: Release ${{ github.ref_name }}
-                  body_path: CHANGELOG.md
+                  body: ${{ steps.changelog.outputs.CHANGELOG }}
                   draft: false
                   prerelease: false
-                  # Use built-in GITHUB_TOKEN instead of GH_PAT
                   token: ${{ secrets.GITHUB_TOKEN }}
 
             - name: Setup npm auth
