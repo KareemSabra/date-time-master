@@ -1,7 +1,7 @@
 # Time Master
 
 [![npm version](https://img.shields.io/npm/v/time-master.svg)](https://www.npmjs.com/package/time-master)
-[![License](https://img.shields.io/npm/l/time-master.svg)](https://github.com/kareemsabra/time-master/blob/main/LICENSE)
+[![License](https://img.shields.io/github/license/kareemsabra/time-master)](https://github.com/kareemsabra/time-master/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0-orange.svg)](https://bun.sh/)
 [![CI](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml/badge.svg)](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml)

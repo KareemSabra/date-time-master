@@ -74,6 +74,13 @@ jobs:
             - name: Install node_modules
               run: bun install
 
-            # Run Tests
-            - name: Run Tests
-              run: bun run test:run
+            # Run Tests with Coverage
+            - name: Run Tests with Coverage
+              run: bun run test:coverage
+
+            # Upload coverage to Coveralls
+            - name: Upload coverage to Coveralls
+              uses: coverallsapp/github-action@v2
+              with:
+                  github-token: ${{ secrets.GITHUB_TOKEN }}
+                  path-to-lcov: ./coverage/lcov.info
