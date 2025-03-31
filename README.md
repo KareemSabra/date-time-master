@@ -5,7 +5,7 @@
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0-orange.svg)](https://bun.sh/)
 [![CI](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml/badge.svg)](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/kareemsabra/time-master/badge.svg?branch=main)](https://coveralls.io/github/kareemsabra/time-master?branch=main)
+[![Coverage Status](https://coveralls.io/repos/github/KareemSabra/time-master/badge.svg)](https://coveralls.io/github/KareemSabra/time-master)
 
 A powerful and flexible time manipulation and formatting library for JavaScript and TypeScript. Built with performance and type safety in mind.
 
