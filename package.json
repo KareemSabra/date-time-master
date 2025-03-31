@@ -1,36 +1,84 @@
 {
-  "name": "pkg-name",
-  "type": "module",
-  "version": "0.0.0",
-  "main": "./dist/index.cjs",
-  "module": "./dist/index.js",
-  "types": "./dist/index.d.ts",
-  "description": "",
-  "exports": {
+    "name": "time-master",
+    "type": "module",
+    "version": "0.0.0",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
-    "import": "./dist/index.js",
-    "require": "./dist/index.cjs"
-  },
-  "scripts": {
-    "build": "bun run build.ts",
-    "prepublishOnly": "bun run build"
-  },
-  "files": [
-    "dist"
-  ],
-  "keywords": [
-    "bun"
-  ],
-  "license": "MIT",
-  "homepage": "https://github.com/wobsoriano/pkg-name#readme",
-  "repository": {
-    "type": "git",
-    "url": "git+https://github.com/wobsoriano/pkg-name.git"
-  },
-  "bugs": "https://github.com/wobsoriano/pkg-name/issues",
-  "author": "Robert Soriano <sorianorobertc@gmail.com>",
-  "devDependencies": {
-    "bun-plugin-dts": "^0.3.0",
-    "@types/bun": "^1.1.10"
-  }
+    "description": "A powerful and flexible time manipulation and formatting library for JavaScript and TypeScript",
+    "exports": {
+        "types": "./dist/index.d.ts",
+        "import": "./dist/index.js",
+        "require": "./dist/index.cjs"
+    },
+    "scripts": {
+        "build": "bun run build.ts",
+        "test": "vitest",
+        "prepublishOnly": "bun run build",
+        "test:run": "vitest run",
+        "test:coverage": "vitest run --coverage",
+        "lint": "eslint . --ext .ts",
+        "lint:fix": "eslint . --ext .ts --fix",
+        "tsc:check": "tsc --noEmit",
+        "prepare": "husky install",
+        "format": "prettier --write \"**/*.{ts,json,md}\"",
+        "docs": "typedoc --out docs src/index.ts",
+        "clean": "rm -rf dist docs coverage",
+        "prebuild": "bun run clean"
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "keywords": [
+        "time",
+        "date",
+        "formatting",
+        "manipulation",
+        "typescript",
+        "bun",
+        "utility",
+        "datetime"
+    ],
+    "license": "MIT",
+    "homepage": "https://github.com/kareemsabra/time-master#readme",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/kareemsabra/time-master.git"
+    },
+    "bugs": "https://github.com/kareemsabra/time-master/issues",
+    "author": "Kareem Sabra",
+    "devDependencies": {
+        "bun-plugin-dts": "^0.3.0",
+        "@types/bun": "^1.2.8",
+        "vitest": "^1.3.1",
+        "@vitest/coverage-v8": "^1.3.1",
+        "@typescript-eslint/eslint-plugin": "^7.1.0",
+        "@typescript-eslint/parser": "^7.1.0",
+        "eslint": "^8.57.0",
+        "eslint-config-prettier": "^9.1.0",
+        "eslint-plugin-import": "^2.29.1",
+        "eslint-plugin-prettier": "^5.1.3",
+        "prettier": "^3.2.5",
+        "eslint-import-resolver-typescript": "^3.6.1",
+        "husky": "^9.0.11",
+        "lint-staged": "^15.2.2",
+        "typedoc": "^0.25.12"
+    },
+    "lint-staged": {
+        "*.{ts,json,md}": [
+            "prettier --write",
+            "eslint --fix",
+            "git add"
+        ],
+        "*.ts": [
+            "bun test:run",
+            "tsc --noEmit"
+        ]
+    },
+    "engines": {
+        "node": ">=18.0.0",
+        "bun": ">=1.0.0"
+    }
 }

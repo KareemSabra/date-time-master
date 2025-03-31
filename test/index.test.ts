@@ -1,12 +1,44 @@
-import { describe, it, expect } from 'bun:test'
-import { one, two } from '../src'
+import { describe, it, expect } from 'vitest';
 
-describe('should', () => {
-  it('export 1', () => {
-    expect(one).toBe(1)
-  })
+import { TimeMaster } from '../src/classes/TimeMaster';
 
-  it('export 2', () => {
-    expect(two).toBe(2)
-  })
-})
+describe('Time Master Class', () => {
+    it('should create a new TimeMaster instance', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        expect(timeMaster).toBeDefined();
+    });
+
+    it('should get the current date', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const date = timeMaster.getCurrentDate();
+        expect(date).toBeDefined();
+    });
+
+    it('should get the current timezone', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const timezone = timeMaster.getTimezone();
+        expect(timezone).toBeDefined();
+        expect(timezone).toBe('UTC');
+    });
+
+    it('should get the current locale "en"', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('en');
+    });
+
+    it('should get the current locale "es"', () => {
+        const timeMaster = new TimeMaster('es', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('es');
+    });
+
+    it('should get the current locale "ar"', () => {
+        const timeMaster = new TimeMaster('ar', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('ar');
+    });
+});

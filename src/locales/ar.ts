@@ -1,0 +1,82 @@
+/**
+ * Arabic locale configuration
+ */
+export const ar = {
+    localeKey: 'ar',
+    dateFormats: {
+        short: 'DD/MM/YYYY',
+        medium: 'DD MMM، YYYY',
+        long: 'DD من MMMM من YYYY',
+        full: 'EEEE، DD من MMMM من YYYY',
+        time: 'HH:mm:ss',
+        dateTime: 'DD/MM/YYYY HH:mm:ss',
+    },
+    weekDays: {
+        short: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+        long: ['الأحد', 'الإثنين', 'الثلاثاء', 'الأربعاء', 'الخميس', 'الجمعة', 'السبت'],
+    },
+    months: {
+        short: [
+            'يناير',
+            'فبراير',
+            'مارس',
+            'أبريل',
+            'مايو',
+            'يونيو',
+            'يوليو',
+            'أغسطس',
+            'سبتمبر',
+            'أكتوبر',
+            'نوفمبر',
+            'ديسمبر',
+        ],
+        long: [
+            'يناير',
+            'فبراير',
+            'مارس',
+            'أبريل',
+            'مايو',
+            'يونيو',
+            'يوليو',
+            'أغسطس',
+            'سبتمبر',
+            'أكتوبر',
+            'نوفمبر',
+            'ديسمبر',
+        ],
+    },
+    relativeTime: {
+        past: {
+            seconds: 'الآن',
+            minute: 'منذ دقيقة واحدة',
+            minutes: 'منذ {count} دقائق',
+            hour: 'منذ ساعة واحدة',
+            hours: 'منذ {count} ساعات',
+            day: 'منذ يوم واحد',
+            days: 'منذ {count} أيام',
+            week: 'منذ أسبوع واحد',
+            weeks: 'منذ {count} أسابيع',
+            month: 'منذ شهر واحد',
+            months: 'منذ {count} أشهر',
+            year: 'منذ سنة واحدة',
+            years: 'منذ {count} سنوات',
+        },
+        future: {
+            seconds: 'خلال ثوانٍ',
+            minute: 'خلال دقيقة واحدة',
+            minutes: 'خلال {count} دقائق',
+            hour: 'خلال ساعة واحدة',
+            hours: 'خلال {count} ساعات',
+            day: 'خلال يوم واحد',
+            days: 'خلال {count} أيام',
+            week: 'خلال أسبوع واحد',
+            weeks: 'خلال {count} أسابيع',
+            month: 'خلال شهر واحد',
+            months: 'خلال {count} أشهر',
+            year: 'خلال سنة واحدة',
+            years: 'خلال {count} سنوات',
+        },
+    },
+} as const;
+
+export type ArabicLocale = typeof ar;
