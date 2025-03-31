@@ -8,6 +8,8 @@ on:
 jobs:
     release:
         runs-on: ubuntu-latest
+        permissions:
+            contents: write # Allow actions to push to the repository
         steps:
             - name: Checkout repository
               uses: actions/checkout@v3
