@@ -1,7 +1,7 @@
 {
     "name": "time-master",
     "type": "module",
-    "version": "0.0.10",
+    "version": "0.0.11",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -20,7 +20,6 @@
         "lint": "eslint . --ext .ts",
         "lint:fix": "eslint . --ext .ts --fix",
         "tsc:check": "tsc --noEmit",
-        "prepare": "husky install",
         "format": "prettier --write \"**/*.{ts,json,md}\"",
         "docs": "typedoc --out docs src/index.ts",
         "clean": "rm -rf dist docs coverage",
