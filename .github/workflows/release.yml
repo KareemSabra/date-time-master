@@ -27,23 +27,8 @@ jobs:
             - name: Build
               run: bun run build
 
-            - name: Generate changelog
-              id: changelog
-              run: |
-                  echo "CHANGELOG<<EOF" >> $GITHUB_OUTPUT
-                  npx changelogithub >> $GITHUB_OUTPUT
-                  echo "EOF" >> $GITHUB_OUTPUT
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
-
-            - name: Create Release
-              uses: softprops/action-gh-release@v1
-              with:
-                  name: Release ${{ github.ref_name }}
-                  body: ${{ steps.changelog.outputs.CHANGELOG }}
-                  draft: false
-                  prerelease: false
-                  token: ${{ secrets.GITHUB_TOKEN }}
+            - name: Install husky
+              run: bun install husky --no-save
 
             - name: Setup npm auth
               run: |
