@@ -37,8 +37,12 @@ jobs:
                   body_path: CHANGELOG.md
                   draft: false
                   prerelease: false
-              env:
-                  GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+                  # Use built-in GITHUB_TOKEN instead of GH_PAT
+                  token: ${{ secrets.GITHUB_TOKEN }}
+
+            - name: Setup npm auth
+              run: |
+                  echo "//registry.npmjs.org/:_authToken=${{ secrets.NPM_TOKEN }}" > .npmrc
 
             - name: Publish to NPM
               run: bun publish
