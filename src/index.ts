@@ -3,6 +3,19 @@
  * @module time-master
  */
 
+export { LocaleProvider } from './providers/LocaleProvider';
+export { locales } from './constants/locales';
+export { timeZones } from './constants/timezones';
+export type {
+    Locale,
+    LocaleKey,
+    TimeZone,
+    DateFormatKey,
+    WeekDayFormatKey,
+    MonthFormatKey,
+    RelativeTimeKey,
+} from './types';
+
 /**
  * MM-YYYY-DD -> 03-2025-29
  * DD-MM-YYYY -> 29-03-2025
@@ -28,33 +41,3 @@ export function timeFormat(date: string | Date, format: string): string {
 
     return format.replace(/YYYY|MM|DD|HH|mm|ss/g, (matched) => map[matched]);
 }
-
-/**
- * Returns the number 1
- * @returns {1} The number 1
- * @example
- * ```typescript
- * import { one } from 'time-master';
- * const result = one(); // 1
- * ```
- */
-export const one = (): 1 => 1;
-
-/**
- * Returns the number 2
- * @returns {2} The number 2
- * @example
- * ```typescript
- * import { two } from 'time-master';
- * const result = two(); // 2
- * ```
- */
-export const two = (): 2 => 2;
-
-/**
- * Type definition for the library's exports
- */
-export type TimeMaster = {
-    one: () => 1;
-    two: () => 2;
-};

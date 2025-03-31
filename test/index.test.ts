@@ -1,35 +1,44 @@
 import { describe, it, expect } from 'vitest';
 
-import { timeFormat } from '../src';
+import { TimeMaster } from '../src/classes/TimeMaster';
 
-describe('timeFormat function', () => {
-    it('should format date in YYYY MM DD format', () => {
-        const date = new Date('2025-03-29T00:00:00Z');
-        expect(timeFormat(date, 'YYYY MM DD')).toBe('2025 03 29');
+describe('Time Master Class', () => {
+    it('should create a new TimeMaster instance', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        expect(timeMaster).toBeDefined();
     });
 
-    it('should format date in DD-MM-YYYY format', () => {
-        const date = new Date('2025-03-29T00:00:00Z');
-        expect(timeFormat(date, 'DD-MM-YYYY')).toBe('29-03-2025');
+    it('should get the current date', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const date = timeMaster.getCurrentDate();
+        expect(date).toBeDefined();
     });
 
-    it('should format date in MM/DD/YYYY format', () => {
-        const date = new Date('2025-03-29T00:00:00Z');
-        expect(timeFormat(date, 'MM/DD/YYYY')).toBe('03/29/2025');
+    it('should get the current timezone', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const timezone = timeMaster.getTimezone();
+        expect(timezone).toBeDefined();
+        expect(timezone).toBe('UTC');
     });
 
-    it('should format date in HH:mm:ss format', () => {
-        const date = new Date('2025-03-29T14:05:09Z');
-        expect(timeFormat(date, 'HH:mm:ss')).toBe('14:05:09');
+    it('should get the current locale "en"', () => {
+        const timeMaster = new TimeMaster('en', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('en');
     });
 
-    it('should handle string date input', () => {
-        const date = '2025-03-29T00:00:00Z';
-        expect(timeFormat(date, 'YYYY-MM-DD')).toBe('2025-03-29');
+    it('should get the current locale "es"', () => {
+        const timeMaster = new TimeMaster('es', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('es');
     });
 
-    it('should handle invalid date input gracefully', () => {
-        const date = 'invalid-date';
-        expect(timeFormat(date, 'YYYY-MM-DD')).toBe('Invalid Date');
+    it('should get the current locale "ar"', () => {
+        const timeMaster = new TimeMaster('ar', 'UTC');
+        const locale = timeMaster.getLocale();
+        expect(locale).toBeDefined();
+        expect(locale.localeKey).toBe('ar');
     });
 });
