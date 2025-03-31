@@ -74,9 +74,17 @@ jobs:
             - name: Install node_modules
               run: bun install
 
+            # Clean coverage directory
+            - name: Clean coverage directory
+              run: rm -rf coverage
+
             # Run Tests with Coverage
             - name: Run Tests with Coverage
               run: bun run test:coverage
+
+            # Verify coverage file exists
+            - name: Verify coverage file exists
+              run: test -f ./coverage/lcov.info
 
             # Upload coverage to Coveralls
             - name: Upload coverage to Coveralls
