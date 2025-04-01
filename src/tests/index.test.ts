@@ -1,11 +1,11 @@
 import { describe, it, expect } from 'vitest';
 
-import DateTimeMaster from '../index';
-import { Locale } from '../types';
 import { defaultConfig } from '../constants/defaultConfig';
-import { locales } from '../locales';
-import { timeZones } from '../constants/timezones';
 import { locales as supportedLocales } from '../constants/locales';
+import { timeZones } from '../constants/timezones';
+import DateTimeMaster from '../index';
+import { locales } from '../locales';
+import { Locale } from '../types';
 
 describe('Constants', () => {
     it('should have valid default config', () => {
@@ -201,7 +201,6 @@ describe('DateTimeMaster Class', () => {
             timeZone: 'UTC',
         });
         const date = new Date('2021-01-01T12:30:45');
-        const format = 'YYYY-MM-DD HH:mm:ss EEEE MMMM MMM';
         const result = dateTimeMaster.formatDate(date, 'full');
         expect(result).toBeDefined();
         expect(typeof result).toBe('string');
