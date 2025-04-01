@@ -1,7 +1,7 @@
 {
     "name": "date-time-master",
     "type": "module",
-    "version": "0.0.13",
+    "version": "1.0.0",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -41,12 +41,12 @@
         "datetime"
     ],
     "license": "MIT",
-    "homepage": "https://github.com/kareemsabra/time-master#readme",
+    "homepage": "https://github.com/kareemsabra/date-time-master#readme",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/kareemsabra/time-master.git"
+        "url": "git+https://github.com/kareemsabra/date-time-master.git"
     },
-    "bugs": "https://github.com/kareemsabra/time-master/issues",
+    "bugs": "https://github.com/kareemsabra/date-time-master/issues",
     "author": "Kareem Sabra",
     "devDependencies": {
         "bun-plugin-dts": "^0.3.0",

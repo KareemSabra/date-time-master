@@ -1,6 +1,5 @@
 /**
- * Locale key type definition
- * @module time-master/types/LocaleKey
+ * @module date-time-master/types/LocaleKey
  */
 
 import { locales } from '../constants/locales';

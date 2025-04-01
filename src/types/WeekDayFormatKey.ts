@@ -1,6 +1,5 @@
 /**
- * Week day format key type definition
- * @module time-master/types/WeekDayFormatKey
+ * @module date-time-master/types/WeekDayFormatKey
  */
 
 import type { Locale } from './Locale';
