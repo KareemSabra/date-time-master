@@ -1,6 +1,5 @@
 /**
- * Date format key type definition
- * @module time-master/types/DateFormatKey
+ * @module date-time-master/types/DateFormatKey
  */
 
 import type { Locale } from './Locale';

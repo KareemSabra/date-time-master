@@ -1,13 +1,13 @@
-# Time Master
+# Date Time Master
 
-[![npm version](https://img.shields.io/npm/v/time-master.svg)](https://www.npmjs.com/package/time-master)
-[![License](https://img.shields.io/github/license/kareemsabra/time-master)](https://github.com/kareemsabra/time-master/blob/main/LICENSE)
+[![npm version](https://img.shields.io/npm/v/date-time-master.svg)](https://www.npmjs.com/package/date-time-master)
+[![License](https://img.shields.io/github/license/kareemsabra/date-time-master)](https://github.com/kareemsabra/date-time-master/blob/main/LICENSE)
 [![TypeScript](https://img.shields.io/badge/TypeScript-5.0-blue.svg)](https://www.typescriptlang.org/)
 [![Bun](https://img.shields.io/badge/Bun-1.0-orange.svg)](https://bun.sh/)
-[![CI](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml/badge.svg)](https://github.com/kareemsabra/time-master/actions/workflows/ci.yml)
-[![Coverage Status](https://coveralls.io/repos/github/KareemSabra/time-master/badge.svg)](https://coveralls.io/github/KareemSabra/time-master)
+[![CI](https://github.com/kareemsabra/date-time-master/actions/workflows/ci.yml/badge.svg)](https://github.com/kareemsabra/date-time-master/actions/workflows/ci.yml)
+[![Coverage Status](https://coveralls.io/repos/github/KareemSabra/date-time-master/badge.svg)](https://coveralls.io/github/KareemSabra/date-time-master)
 
-A powerful and flexible time manipulation and formatting library for JavaScript and TypeScript. Built with performance and type safety in mind.
+A powerful and flexible date and time manipulation library for JavaScript and TypeScript. Built with performance, type safety, and internationalization in mind.
 
 ## Features
 
@@ -16,6 +16,7 @@ A powerful and flexible time manipulation and formatting library for JavaScript 
 - 🔄 ESM and CommonJS support
 - 🎯 Tree-shakeable
 - ⚡ Bun-powered for maximum performance
+- 🌍 Built-in internationalization support
 - 📝 Comprehensive JSDoc documentation
 - ✅ Full test coverage
 - 🔍 Strict type checking
@@ -24,83 +25,130 @@ A powerful and flexible time manipulation and formatting library for JavaScript 
 
 ```bash
 # Using bun
-bun add time-master
+bun add date-time-master
 
 # Using npm
-npm install time-master
+npm install date-time-master
 
 # Using yarn
-yarn add time-master
+yarn add date-time-master
 
 # Using pnpm
-pnpm add time-master
+pnpm add date-time-master
 ```
 
 ## Quick Start
 
 ```typescript
-import { one, two } from 'time-master';
+import DateTimeMaster from 'date-time-master';
 
-// Basic usage
-const result1 = one(); // 1
-const result2 = two(); // 2
+// Initialize with configuration
+const dateTime = new DateTimeMaster({
+    localeKey: 'en',
+    timeZone: 'UTC',
+});
 
-// TypeScript support
-const timeMaster: TimeMaster = {
-    one,
-    two,
-};
+// Format dates
+const date = new Date();
+console.log(dateTime.formatDate(date, 'short')); // "3/29/2024"
+console.log(dateTime.formatDate(date, 'long')); // "March 29, 2024"
+
+// Get relative time
+console.log(dateTime.getRelativeTime('minutes', 5)); // "5 minutes ago"
+console.log(dateTime.getRelativeTime('hour', 1)); // "1 hour ago"
+
+// Change locale
+dateTime.setLocale('ar');
+console.log(dateTime.formatDate(date, 'long')); // "29 من مارس من 2024"
 ```
 
 ## API Reference
 
-### Constants
-
-#### `one()`
-
-Returns the number 1.
+### Constructor
 
 ```typescript
-function one(): 1;
+new DateTimeMaster(config: Config)
 ```
 
-**Returns:** The literal type `1`
+**Parameters:**
+
+- `config`: Configuration object
+    - `localeKey`: The locale to use (e.g., 'en', 'ar')
+    - `timeZone`: The timezone to use (e.g., 'UTC', 'America/New_York')
+
+### Methods
+
+#### `formatDate(date: Date, format: keyof Locale['dateFormats']): string`
+
+Formats a date using the current locale's format strings.
+
+**Parameters:**
+
+- `date`: The date to format
+- `format`: The format key to use ('short', 'medium', 'long', 'full')
 
 **Example:**
 
 ```typescript
-import { one } from 'time-master';
-const result = one(); // 1
+const date = new Date();
+dateTime.formatDate(date, 'short'); // "3/29/2024"
+dateTime.formatDate(date, 'long'); // "March 29, 2024"
 ```
 
-#### `two()`
+#### `getRelativeTime(key: keyof Locale['relativeTime']['past'], count?: number, isFuture?: boolean): string`
 
-Returns the number 2.
+Gets a relative time string (e.g., "5 minutes ago", "in 2 hours").
 
-```typescript
-function two(): 2;
-```
+**Parameters:**
 
-**Returns:** The literal type `2`
+- `key`: The relative time key (e.g., 'seconds', 'minutes', 'hours')
+- `count`: The count to use (default: 1)
+- `isFuture`: Whether to use future tense (default: false)
 
 **Example:**
 
 ```typescript
-import { two } from 'time-master';
-const result = two(); // 2
+dateTime.getRelativeTime('minutes', 5); // "5 minutes ago"
+dateTime.getRelativeTime('hour', 1); // "1 hour ago"
+dateTime.getRelativeTime('days', 2, true); // "in 2 days"
 ```
 
-### Types
+#### `setLocale(locale: LocaleKey): void`
 
-#### `TimeMaster`
+Sets the current locale.
 
-Type definition for the library's exports.
+**Parameters:**
+
+- `locale`: The locale to set (e.g., 'en', 'ar')
+
+**Example:**
 
 ```typescript
-type TimeMaster = {
-    one: () => 1;
-    two: () => 2;
-};
+dateTime.setLocale('ar');
+```
+
+#### `getCurrentLocale(): LocaleKey`
+
+Gets the current locale.
+
+**Returns:** The current locale key
+
+**Example:**
+
+```typescript
+dateTime.getCurrentLocale(); // "en"
+```
+
+#### `getCurrentTimezone(): TimeZone`
+
+Gets the current timezone.
+
+**Returns:** The current timezone
+
+**Example:**
+
+```typescript
+dateTime.getCurrentTimezone(); // "UTC"
 ```
 
 ## Development

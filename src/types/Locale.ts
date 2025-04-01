@@ -1,6 +1,5 @@
 /**
- * Locale type definition
- * @module time-master/types/Locale
+ * @module date-time-master/types/Locale
  */
 
 import { ArabicLocale } from '../locales/ar';

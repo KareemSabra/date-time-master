@@ -1,6 +1,5 @@
 /**
- * Timezone type definition
- * @module time-master/types/TimeZone
+ * @module date-time-master/types/TimeZone
  */
 
 import { timeZones } from '../constants/timezones';

@@ -1,6 +1,5 @@
 /**
- * Relative time key type definition
- * @module time-master/types/RelativeTimeKey
+ * @module date-time-master/types/RelativeTimeKey
  */
 
 import type { Locale } from './Locale';

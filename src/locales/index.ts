@@ -1,6 +1,5 @@
 /**
- * Locale types and configurations
- * @module time-master/locales
+ * @module date-time-master/locales
  */
 
 import { ar } from './ar';
